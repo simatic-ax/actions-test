@@ -1,9 +1,16 @@
 on: push
+
+env:
+  ACTIONS_REF: kruegerf-feat-reusable
+
 jobs:
   build-apax-lib:
     uses: simatic-ax/actions/.github/workflows/build-apax.yml@kruegerf-feat-reusable
     secrets:
       APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
+    with:
+      ACTIONS_REF: ${{ ACTIONS_REF }}
+
   test-apax-lib:
     needs: build-apax-lib
     uses: simatic-ax/actions/.github/workflows/test-apax.yml@kruegerf-feat-reusable
