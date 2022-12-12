@@ -1,0 +1,6 @@
+on: push
+jobs:
+  lint-repo-and-markdown:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: simatic-ax/actions/.github/workflows/check-repository.yml@kruegerf-feat-reusable
