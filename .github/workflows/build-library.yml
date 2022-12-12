@@ -4,3 +4,7 @@ jobs:
     uses: simatic-ax/actions/.github/workflows/build-apax.yml@kruegerf-feat-reusable
     secrets:
       APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
+  test-apax-lib:
+    uses: simatic-ax/actions/.github/workflows/test-apax.yml@kruegerf-feat-reusable
+    secrets:
+      APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
