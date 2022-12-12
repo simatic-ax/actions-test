@@ -2,3 +2,8 @@ on: push
 jobs:
   lint-repo-and-markdown:
     uses: simatic-ax/actions/.github/workflows/check-repository.yml@kruegerf-feat-reusable
+
+  build-apax-repo:
+    uses: simatic-ax/actions/.github/workflows/build-apax.yml@kruegerf-feat-reusable
+    secrets:
+      APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
