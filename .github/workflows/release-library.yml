@@ -1,0 +1,10 @@
+on:
+  push:
+    branches:
+      - "release"
+
+jobs:
+  build-apax-lib:
+    uses: simatic-ax/actions/.github/workflows/release-library.yml@kruegerf-feat-reusable
+    secrets:
+      APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
