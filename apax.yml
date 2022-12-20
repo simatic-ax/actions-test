@@ -1,4 +1,4 @@
-name: "actions-test"
+name: "@simatic-ax/actions-test"
 version: 0.0.0
 type: lib
 targets:
