@@ -2,7 +2,7 @@ on: push
 
 jobs:
   build-apax-lib:
-    uses: simatic-ax/actions/.github/workflows/apax-build.yml@kruegerf-feat-reusable
+    uses: simatic-ax/actions/workflows/apax-build.yml@kruegerf-feat-reusable
     secrets:
       APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
     with:
@@ -10,6 +10,6 @@ jobs:
 
   test-apax-lib:
     needs: build-apax-lib
-    uses: simatic-ax/actions/.github/workflows/apax-build-test.yml@kruegerf-feat-reusable
+    uses: simatic-ax/actions/workflows/apax-build-test.yml@kruegerf-feat-reusable
     secrets:
       APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
