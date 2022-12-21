@@ -10,7 +10,7 @@ NAMESPACE MyLibrary
         END_VAR
 
         METHOD PUBLIC MyMethod : BOOL
-            MyMethod := FALSE;
+            MyMethod := FALSE; //Comment
         END_METHOD
     END_CLASS
 
