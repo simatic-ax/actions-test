@@ -9,8 +9,8 @@ NAMESPACE MyLibrary
 
         END_VAR
 
-        METHOD PUBLIC MyMethod : BOOL
-            MyMethod := FALSE;
+        METHOD PUBLIC DescriptiveMethodName : BOOL
+            DescriptiveMethodName := FALSE;
         END_METHOD
     END_CLASS
 

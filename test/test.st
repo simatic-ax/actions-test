@@ -16,7 +16,7 @@ NAMESPACE MyTest
                 result : BOOL;
             END_VAR
 
-            result := testInstance.MyMethod();
+            result := testInstance.DescriptiveMethodName();
 
             Assert.Equal(actual := result, expected := FALSE);
         
