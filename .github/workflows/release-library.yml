@@ -9,5 +9,7 @@ jobs:
     uses: simatic-ax/actions/.github/workflows/apax-publish.yml@kruegerf-feat-reusable
     secrets:
       APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
+      DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+
     with:
       VERSION: ${{ github.ref_name }}
