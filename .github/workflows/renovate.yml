@@ -18,6 +18,15 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3.3.0
+      - name: install_apax
+        shell: bash
+        env:
+          APAX_TOKEN: ${{ inputs.APAX_TOKEN }}
+        run: |
+          sudo curl -H "Authorization: bearer $APAX_TOKEN" "https://api.simatic-ax.siemens.io/apax/login?format=npmrc" -o .npmrc --verbose
+          cat .npmrc
+          export APAX_NPMRC=.npmrc
+          echo $APAX_NPMRC
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v34.82.0
         with:
