@@ -24,9 +24,10 @@ jobs:
           APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
         run: |
           sudo curl -H "Authorization: bearer $APAX_TOKEN" "https://api.simatic-ax.siemens.io/apax/login?format=npmrc" -o .npmrc --verbose
-          cat .npmrc
           export APAX_NPMRC=.npmrc
+          export NPMRC=.npmrc
           echo $APAX_NPMRC
+          cat $NPMRC
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v34.82.0
         with:
