@@ -1,23 +1,13 @@
-const endpoint = process.env.CI_API_V4_URL;
-// fallback to developer token for dry runs
-const token =
-  process.env.TOKEN_GITHUB
-const githubToken = process.env.GITHUB_TOKEN;
-const dryRun = process.env.DRY_RUN !== "false";
-const autodiscoverFilter = process.env.AUTODISCOVER_FILTER;
 const apaxNpmrc = process.env.APAX_NPMRC;
 
 const prFooter = `:space_invader: :sparkles: This merge request is proudly presented by [Renovate Bot](https://code.siemens.com/ax/devops/renovate-bot).`;
 
 module.exports = {
-
   platform: "github",
   gitAuthor: "AX Bot <botax.industry@siemens.com>",
   prFooter: prFooter,
   allowPostUpgradeCommandTemplating: true,
   allowedPostUpgradeCommands: [".+"],
-  autodiscover: !!autodiscoverFilter,
-  autodiscoverFilter: autodiscoverFilter,
   logFile: process.env.LOG_FILE,
   logFileLevel: process.env.LOG_FILE_LEVEL || "debug",
   cacheDir: process.env.CACHE_DIR,
