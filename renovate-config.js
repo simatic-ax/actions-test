@@ -1,8 +1,7 @@
-const endpoint = process.env.CI_API_V4_URL;
 // fallback to developer token for dry runs
 const token =
   process.env.TOKEN_GITHUB
-const githubToken = process.env.GITHUB_TOKEN;
+const githubToken = process.env.TOKEN_GITHUB;
 const dryRun = process.env.DRY_RUN !== "false";
 const autodiscoverFilter = process.env.AUTODISCOVER_FILTER;
 const apaxNpmrc = process.env.APAX_NPMRC;
@@ -11,20 +10,12 @@ const prFooter = `:space_invader: :sparkles: This merge request is proudly prese
 
 module.exports = {
   extends: [
-    ":dependencyDashboard",
     ":semanticPrefixFixDepsChoreOthers",
-    ":autodetectPinVersions",
     "group:allNonMajor",
-    "group:monorepos",
-    "group:recommended",
     "workarounds:all",
-    ":prHourlyLimitNone",
-    ":prConcurrentLimitNone",
   ],
   platform: "github",
   platformAutomerge: true,
-  endpoint: endpoint,
-  token: token,
   gitAuthor: "AX Bot <botax.industry@siemens.com>",
   dryRun: dryRun,
   prFooter: prFooter,
@@ -54,12 +45,6 @@ module.exports = {
   filterUnavailableUsers: true,
   npmrc: process.env.NPMRC,
   labels: ["renovate", `renovate-v${process.env.VERSION}`],
-  gitlabci: {
-    fileMatch: ["\\.gitlab-ci\\.yml$"],
-  },
-  "gitlabci-include": {
-    fileMatch: ["\\.gitlab-ci\\.yml$"],
-  },
   regexManagers: [
     {
       fileMatch: ["(^|\\/)(test.|test-windows.)?apax.ya?ml$"],
@@ -139,62 +124,6 @@ module.exports = {
       // Ensure that SemVer ranges for engines are preserved.
       matchDepTypes: ["engines"],
       rangeStrategy: "replace",
-    },
-    {
-      // Create a proper change link for dependencies from code.siemens.com
-      matchSourceUrlPrefixes: ["https://code.siemens.com"],
-      prBodyDefinitions: {
-        // Inspired by what Renovate does for NPM packages, see https://github.com/renovatebot/renovate/blob/59d140fc25dda4bd89057f5f3a948a6849667762/lib/manager/npm/index.ts#L16
-        Change:
-          "[{{#if displayFrom}}`{{{displayFrom}}}` -> {{else}}{{#if currentValue}}`{{{currentValue}}}` -> {{/if}}{{/if}}{{#if displayTo}}`{{{displayTo}}}`{{else}}`{{{newValue}}}`{{/if}}]({{#if sourceUrl}}{{replace '.git' '' sourceUrl}}/-/compare/{{{currentVersion}}}...{{{newVersion}}}{{/if}})",
-      },
-    },
-    {
-      // Ensure that internal packages are automerged and ignore dependency freeze for those.
-      matchSourceUrlPrefixes: ["https://code.siemens.com/ax"],
-      addLabels: ["ignore-dependency-freeze"],
-      automerge: true,
-    },
-    {
-      matchPackagePatterns: ["^@types\\/"],
-      matchLanguages: ["js"],
-      groupName: "TS Types",
-    },
-    {
-      // Keep the VS Code types separate because this dependency usually
-      // needs to be updated together with the "engines" field.
-      matchPackageNames: ["@types/vscode"],
-      matchLanguages: ["js"],
-      // ⚠⚠⚠ Global AX contract regarding VS Code compatibility ⚠⚠⚠
-      allowedVersions: "<=1.72",
-      groupName: "VS Code API",
-    },
-    {
-      matchPackageNames: [
-        "eslint",
-        "tslint",
-        "prettier",
-        "pretty-quick",
-        "markdownlint-cli",
-        "remark-cli",
-        "remark-validate-links",
-      ],
-      matchPackagePatterns: [
-        "^eslint-config-",
-        "^eslint-plugin-",
-        "^@typescript-eslint\\/",
-      ],
-      matchLanguages: ["js"],
-      groupName: "Linters and Formatters",
-    },
-    {
-      matchPackageNames: ["dotnet"],
-      matchUpdateTypes: ["major"],
-      enabled: false
-    },
-    {
-      matchPackagePatterns: ["^SpecFlow"],
-      groupName: "SpecFlow",
     },
     {
       // Set endpoint and credentials for the Apax registry
