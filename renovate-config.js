@@ -1,7 +1,6 @@
 const apaxNpmrc = process.env.RENOVATE_NPMRC;
 
 const prFooter = `:space_invader: :sparkles: This merge request is proudly presented by [Renovate Bot](https://code.siemens.com/ax/devops/renovate-bot).`;
-
 module.exports = {
   platform: "github",
   gitAuthor: "AX Bot <botax.industry@siemens.com>",
@@ -14,6 +13,7 @@ module.exports = {
   allowScripts: true,
   exposeAllEnv: true,
   ignoreScripts: true,
+  repositories: ["simatic-ax/actions-test"],
   npmrc: process.env.RENOVATE_NPMRC,
   labels: ["renovate", `renovate-v${process.env.VERSION}`],
   regexManagers: [
