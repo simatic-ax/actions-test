@@ -1,4 +1,4 @@
-const apaxNpmrc = process.env.RENOVATE_APAX_NPMRC;
+const apaxNpmrc = process.env.RENOVATE_NPMRC;
 
 const prFooter = `:space_invader: :sparkles: This merge request is proudly presented by [Renovate Bot](https://code.siemens.com/ax/devops/renovate-bot).`;
 
