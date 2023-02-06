@@ -1,4 +1,4 @@
-const apaxNpmrc = process.env.APAX_NPMRC;
+const apaxNpmrc = process.env.RENOVATE_APAX_NPMRC;
 
 const prFooter = `:space_invader: :sparkles: This merge request is proudly presented by [Renovate Bot](https://code.siemens.com/ax/devops/renovate-bot).`;
 
@@ -14,7 +14,7 @@ module.exports = {
   allowScripts: true,
   exposeAllEnv: true,
   ignoreScripts: true,
-  npmrc: process.env.NPMRC,
+  npmrc: process.env.RENOVATE_NPMRC,
   labels: ["renovate", `renovate-v${process.env.VERSION}`],
   regexManagers: [
     {
@@ -35,7 +35,7 @@ module.exports = {
       matchStrings: [
         // We're using `String.raw` here so that the RegEx can be easily copied from/to other tools (e.g. https://regex101.com/)
         String.raw`#\s*renovate:\s+datasource=(?<datasource>.*?)\s+depName=(?<depName>[\.\w]+)[\s-]+[\w]+_VERSION\s*=\s*"?(?<currentValue>[\d\.^\-\w]*)"?`,
-      ],      
+      ],
     },
   ],
   packageRules: [
