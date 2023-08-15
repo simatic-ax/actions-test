@@ -1,0 +1,7 @@
+on: push
+
+jobs:
+  build:
+    uses: simatic-ax/actions/.github/workflows/apax-build.yml@stable
+    secrets:
+      APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
