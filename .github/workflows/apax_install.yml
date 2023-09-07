@@ -1,4 +1,6 @@
-name: test-apax
+# this workflow is useful to the apax install via setup-apax-runner@teststage. 
+# This can be used, to pre test the action before it bill be released
+name: test-apax-install
 on:
   workflow_dispatch:
 jobs:
