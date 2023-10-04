@@ -16,7 +16,7 @@ jobs:
           apax login --registry "https://npm.pkg.github.com" --password "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Checkout
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.6.0
       - name: install_apax
         shell: bash
         env:
