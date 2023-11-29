@@ -38,4 +38,4 @@ jobs:
           token: ${{ secrets.RENOVATE_TOKEN }}
         env:
           RENOVATE_NPMRC: ${{ env.RENOVATE_NPMRC }}
-          LOG_LEVEL: "debug"
+          LOG_LEVEL: "trace"
