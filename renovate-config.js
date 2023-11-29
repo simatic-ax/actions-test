@@ -21,7 +21,7 @@ module.exports = {
       hostType: 'npm',
       matchHost: 'registry.simatic-ax.siemens.io',
       token: process.env.APAX_TOKEN,
-    },
+    }],
   regexManagers: [
     {
       fileMatch: ["(^|\\/)(test.|test-windows.)?apax.ya?ml$"],
