@@ -38,4 +38,5 @@ jobs:
           token: ${{ secrets.RENOVATE_TOKEN }}
         env:
           RENOVATE_NPMRC: ${{ env.RENOVATE_NPMRC }}
+          RENOVATE_APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
           LOG_LEVEL: "trace"
