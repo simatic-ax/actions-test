@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v4.1.1
         
       - name: "Setup the apax runner"
-        uses: simatic-ax/actions/setup-apax-runner@stable
+        uses: simatic-ax/actions/setup-apax-runner@main
         with:
           APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
 
