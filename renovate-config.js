@@ -16,6 +16,12 @@ module.exports = {
   repositories: ["simatic-ax/actions-test"],
   npmrc: process.env.RENOVATE_NPMRC,
   labels: ["renovate", `renovate-v${process.env.VERSION}`],
+  hostRules: [
+    {
+      hostType: 'npm',
+      matchHost: 'registry.simatic-ax.siemens.io',
+      token: process.env.APAX_TOKEN,
+    },
   regexManagers: [
     {
       fileMatch: ["(^|\\/)(test.|test-windows.)?apax.ya?ml$"],
