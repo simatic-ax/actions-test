@@ -8,7 +8,7 @@ module.exports = {
   allowPostUpgradeCommandTemplating: true,
   allowedPostUpgradeCommands: [".+"],
   logFile: process.env.LOG_FILE,
-  logFileLevel: process.env.LOG_FILE_LEVEL || "debug",
+  logFileLevel: process.env.LOG_FILE_LEVEL || "trace",
   cacheDir: process.env.CACHE_DIR,
   allowScripts: true,
   exposeAllEnv: true,
