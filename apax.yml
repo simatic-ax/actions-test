@@ -8,4 +8,4 @@ targets:
 files:
   - bin
 devDependencies:
-  "@ax/sdk": 4.0.2
+  "@ax/sdk": 2311.0.1
